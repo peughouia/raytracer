@@ -1,0 +1,22 @@
+name: Continuous Integration
+
+on:
+  pull_request:
+    branches: [ dev, main ]
+  push:
+    branches: [ dev, main ]
+
+jobs:
+  build-and-test:
+    name: Build & Test in Dev Container
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Run build and test suite in Dev Container
+        uses: devcontainers/ci@v0.3
+        with:
+          runCmd: |
+            make build
+            make test

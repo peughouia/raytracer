@@ -259,3 +259,20 @@ Clean up formatting, check edge cases (e.g. zero length vector, normalization), 
 To maintain clean code across all contributors:
 - **Formatter:** `clang-format` is pre-configured. In VS Code, files format automatically upon saving.
 - **Compiler Warnings:** Configured with `-Wall -Wextra -Wpedantic -Wconversion -Wshadow` (GCC/Clang) and `/W4` (MSVC) in `CMakeLists.txt`. Treat warnings as issues to solve immediately.
+
+---
+
+## 7. Contributing & Governance
+
+We welcome future contributions! Please review our community guidelines before submitting changes:
+- **Contributing Guide:** [CONTRIBUTING.md](file:///D:/MT5%20HETIC/raytracer/CONTRIBUTING.md) details branch strategy (PRs target `dev`), Conventional Commits format, and the TDD process.
+- **Code of Conduct:** [CODE_OF_CONDUCT.md](file:///D:/MT5%20HETIC/raytracer/CODE_OF_CONDUCT.md) outlines our expected standards of interaction.
+- **Issue & PR Templates:** Standard templates are available under [.github/](file:///D:/MT5%20HETIC/raytracer/.github/).
+- **Architecture Decisions:** Review accepted and proposed records in [docs/adr/](file:///D:/MT5%20HETIC/raytracer/docs/adr/).
+- **Continuous Integration:** Automated build and test workflows run via GitHub Actions ([.github/workflows/ci.yml](file:///D:/MT5%20HETIC/raytracer/.github/workflows/ci.yml)) inside the Dev Container environment.
+
+---
+
+## 8. License
+
+This project is licensed under the MIT License. See [LICENSE](file:///D:/MT5%20HETIC/raytracer/LICENSE) for details.
