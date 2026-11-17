@@ -1,0 +1,47 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "CMake: configure",
+      "type": "shell",
+      "command": "cmake",
+      "args": ["-B", "build", "-S", "."],
+      "group": "build",
+      "problemMatcher": []
+    },
+    {
+      "label": "CMake: build",
+      "type": "shell",
+      "command": "cmake",
+      "args": ["--build", "build"],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": ["$gcc"]
+    },
+    {
+      "label": "Run Raytracer",
+      "type": "shell",
+      "command": "${workspaceFolder}/build/bin/raytracer",
+      "windows": {
+        "command": "${workspaceFolder}/build/bin/raytracer.exe"
+      },
+      "dependsOn": "CMake: build",
+      "group": "test",
+      "problemMatcher": []
+    },
+    {
+      "label": "Run Tests (CTest)",
+      "type": "shell",
+      "command": "ctest",
+      "args": ["--test-dir", "build", "--output-on-failure"],
+      "dependsOn": "CMake: build",
+      "group": {
+        "kind": "test",
+        "isDefault": true
+      },
+      "problemMatcher": []
+    }
+  ]
+}

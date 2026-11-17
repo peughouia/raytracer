@@ -1,0 +1,26 @@
+{
+  "name": "Raytracer C++ Dev Environment",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "cmake.generator": "Ninja",
+        "cmake.buildDirectory": "${workspaceFolder}/build",
+        "C_Cpp.default.cppStandard": "c++20",
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "xaver.clang-format"
+      },
+      "extensions": [
+        "ms-vscode.cpptools",
+        "ms-vscode.cpptools-extension-pack",
+        "ms-vscode.cmake-tools",
+        "twxs.cmake",
+        "matepek.vscode-catch2-test-adapter",
+        "xaver.clang-format"
+      ]
+    }
+  },
+  "remoteUser": "vscode"
+}
