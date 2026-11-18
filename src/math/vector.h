@@ -15,8 +15,7 @@ public:
     double y() const;
     double z() const;
 
-    // Adds another vector to this vector and returns the resulting vector
-    Vector add(const Vector& other) const;
+    Vector operator+(const Vector& other) const;
 
     // Subtracts another vector from this vector and returns the resulting vector
     Vector subtract(const Vector& other) const;

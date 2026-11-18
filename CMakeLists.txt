@@ -30,7 +30,7 @@ endif()
 add_library(raytracer_core
     src/raytracer/hello.hpp
     src/raytracer/hello.cpp
-    src/math/vector.hpp
+    src/math/vector.h
     src/math/vector.cpp
 )
 
