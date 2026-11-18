@@ -22,6 +22,14 @@
   ```
   *(or `make test`, or direct binary `./build/bin/raytracer_tests`)*
 
+## How We Work
+
+- **TDD:** Write a failing test first, then only enough code to make it pass.
+- **Expected Values:** Expected values come from the maths, not from running the code. If a test fails, ask me before changing what it expects.
+- **Scope:** One small step at a time, only what I ask for.
+- **Simplicity:** Keep the C++ simple: no advanced features unless I ask.
+- **Host vs Container:** Don't build or run anything on the host: the commands run in the dev container.
+
 ## Contribution and Workflow Rules
 
 - **Contribution Guide:** Follow all instructions in [CONTRIBUTING.md](file:///D:/MT5%20HETIC/raytracer/CONTRIBUTING.md).
@@ -29,6 +37,7 @@
 - **Commit Messages:** Must follow the Conventional Commits specification (`feat:`, `fix:`, `refactor:`, `test:`, `docs:`).
 - **Code of Conduct:** Adhere to [CODE_OF_CONDUCT.md](file:///D:/MT5%20HETIC/raytracer/CODE_OF_CONDUCT.md).
 - **License:** Project is licensed under the MIT License, see [LICENSE](file:///D:/MT5%20HETIC/raytracer/LICENSE).
+- **Source Layout:** New classes go in the folder of their concept, and their tests in the matching folder under tests/.
 
 ## Coding Style Guidelines
 
