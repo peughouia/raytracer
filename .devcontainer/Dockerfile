@@ -6,8 +6,11 @@ RUN if [ -f /etc/apt/sources.list.d/ubuntu.sources ]; then \
     fi \
     && apt-get update && export DEBIAN_FRONTEND=noninteractive \
     && apt-get -y install --no-install-recommends \
+        cmake \
+        ninja-build \
         make \
         build-essential \
+        gdb \
         clang-format \
         clang-tidy \
     && apt-get clean && rm -rf /var/lib/apt/lists/*

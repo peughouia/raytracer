@@ -32,7 +32,7 @@ Use the provided `Makefile` shortcuts (or standard `cmake` / `ctest` commands):
 
 All additions and bug fixes must follow the **Red-Green-Refactor** cycle using Catch2 (see [docs/adr/0003-catch2.md](file:///D:/MT5%20HETIC/raytracer/docs/adr/0003-catch2.md)):
 1. **Red:** Write a failing test in `tests/` describing the desired behavior.
-2. **Green:** Implement the minimal code in `src/` and `include/` to pass the test.
+2. **Green:** Implement the minimal code in `src/` to pass the test.
 3. **Refactor:** Clean up and optimize the implementation while keeping all tests green.
 
 ## 5. Architectural Decisions (ADRs)

@@ -28,7 +28,10 @@ endif()
 # All modular raytracing logic (math, rays, cameras, objects) goes here.
 # This makes unit testing straightforward and decoupled from main().
 add_library(raytracer_core
-    src/hello.cpp
+    src/raytracer/hello.hpp
+    src/raytracer/hello.cpp
+    src/math/vector.hpp
+    src/math/vector.cpp
 )
 
 target_link_libraries(raytracer_core PUBLIC
@@ -36,7 +39,7 @@ target_link_libraries(raytracer_core PUBLIC
 )
 
 target_include_directories(raytracer_core PUBLIC
-    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/src>
     $<INSTALL_INTERFACE:include>
 )
 
@@ -73,7 +76,8 @@ if(BUILD_TESTING)
     FetchContent_MakeAvailable(Catch2)
 
     add_executable(raytracer_tests
-        tests/test_hello.cpp
+        tests/raytracer/test_hello.cpp
+        tests/math/test_vector.cpp
     )
 
     target_link_libraries(raytracer_tests PRIVATE

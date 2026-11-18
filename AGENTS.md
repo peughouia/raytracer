@@ -30,6 +30,11 @@
 - **Code of Conduct:** Adhere to [CODE_OF_CONDUCT.md](file:///D:/MT5%20HETIC/raytracer/CODE_OF_CONDUCT.md).
 - **License:** Project is licensed under the MIT License, see [LICENSE](file:///D:/MT5%20HETIC/raytracer/LICENSE).
 
+## Coding Style Guidelines
+
+- **Private Member Variables:** All private variables must have an underscore (`_`) prefix (e.g., `_x`, `_y`, `_z`).
+- **No "get" Prefix:** Do not use the `get` prefix for accessor functions; it is redundant (e.g., use `x()`, `y()`, `z()` rather than `getX()`, `getY()`, `getZ()`).
+
 ## Architecture Decision Records (ADRs)
 
 - Our architecture decisions are in `docs/adr/`: read them before changing the build, the tools, or the test setup.

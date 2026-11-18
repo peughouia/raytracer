@@ -44,14 +44,19 @@ raytracer/
 │   └── tasks.json              # Quick build & test tasks
 ├── docs/
 │   └── discovery/              # Discovery report and specifications
-├── include/
-│   └── raytracer/
-│       └── hello.hpp           # Public headers & declarations (namespace raytracer)
 ├── src/
-│   ├── hello.cpp               # Core library implementation
+│   ├── math/
+│   │   ├── vector.hpp          # Vector class declarations
+│   │   └── vector.cpp          # Vector class implementation
+│   ├── raytracer/
+│   │   ├── hello.hpp           # Greeting & Vec3 declarations
+│   │   └── hello.cpp           # Greeting & project info implementation
 │   └── main.cpp                # Demo entry point executable
 ├── tests/
-│   └── test_hello.cpp          # Unit and BDD tests using Catch2 v3
+│   ├── math/
+│   │   └── test_vector.cpp     # Unit tests for Vector class
+│   └── raytracer/
+│       └── test_hello.cpp      # Unit and BDD tests using Catch2 v3
 ├── CMakeLists.txt              # Modern CMake build definition (C++20)
 ├── CMakePresets.json           # Standard debug & release configuration presets
 ├── Makefile                    # Convenience shortcuts for terminal users
@@ -216,7 +221,7 @@ We follow the classic **Red-Green-Refactor** loop for all raytracer components (
 ### Concrete Example: Adding Vector Length (`Vec3::length()`)
 
 #### Step 1: Write the failing test (**RED**)
-In [tests/test_hello.cpp](file:///d:/MT5%20HETIC/raytracer/tests/test_hello.cpp), add a new specification:
+In [tests/raytracer/test_hello.cpp](file:///d:/MT5%20HETIC/raytracer/tests/raytracer/test_hello.cpp), add a new specification:
 
 ```cpp
 TEST_CASE("Vec3 calculates Euclidean length", "[math][vec3]") {
@@ -230,7 +235,7 @@ Run `make test` or `ctest --test-dir build --output-on-failure`.
 > **Result:** Compilation fails or test fails because `v.length()` does not exist yet. **(Red phase confirmed)**
 
 #### Step 2: Write minimal implementation (**GREEN**)
-In [include/raytracer/hello.hpp](file:///d:/MT5%20HETIC/raytracer/include/raytracer/hello.hpp), add the method to `struct Vec3`:
+In [src/raytracer/hello.hpp](file:///d:/MT5%20HETIC/raytracer/src/raytracer/hello.hpp), add the method to `struct Vec3`:
 
 ```cpp
 #include <cmath>
