@@ -4,21 +4,19 @@ namespace math {
 
 class Vector {
 public:
-    // Default constructor: creates a vector initialized to (0, 0, 0)
     Vector();
-
-    // Constructor: creates a vector with given x, y, z coordinates
     Vector(double x, double y, double z);
 
-    // Component accessors (no "get" prefix)
     double x() const;
     double y() const;
     double z() const;
 
     Vector operator+(const Vector& other) const;
+    Vector operator-(const Vector& other) const;
 
-    // Subtracts another vector from this vector and returns the resulting vector
-    Vector subtract(const Vector& other) const;
+    double dot(const Vector& other) const;
+    double length() const;
+    Vector normalised() const;
 
 private:
     double _x;
@@ -26,8 +24,11 @@ private:
     double _z;
 };
 
+Vector operator*(double t, const Vector& v);
+
 } // namespace math
 
 namespace raytracer {
 using math::Vector;
+using math::operator*;
 }
