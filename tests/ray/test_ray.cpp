@@ -14,10 +14,10 @@ TEST_CASE("Ray components", "[ray]") {
 }
 
 TEST_CASE("Ray point at distance t", "[ray]") {
-    Vector origin(1, 2, 3);
-    Vector direction(0, 1, 0);
+    Vector origin(0, 8, 0);
+    Vector direction(3, -4, 0);
     Ray ray(origin, direction);
 
-    requireVectorsEqual(ray.at(0.0), Vector(1, 2, 3));
-    requireVectorsEqual(ray.at(2.0), Vector(1, 4, 3));
+    requireVectorsEqual(ray.at(0.0), Vector(0, 8, 0));
+    requireVectorsEqual(ray.at(2.0), Vector(6, 0, 0));
 }

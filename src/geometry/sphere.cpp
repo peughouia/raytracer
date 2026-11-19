@@ -15,7 +15,7 @@ const Material& Sphere::material() const {
     return _material;
 }
 
-std::optional<HitInfo> Sphere::hit(const Ray& ray) const {
+std::optional<Hit> Sphere::hit(const Ray& ray) const {
     Vector O = ray.origin();
     Vector D = ray.direction();
     Vector C = _centre;
@@ -48,7 +48,7 @@ std::optional<HitInfo> Sphere::hit(const Ray& ray) const {
     Vector hitPoint = ray.at(t);
     Vector normal = (hitPoint - _centre) / _radius;
 
-    return HitInfo(hitPoint, normal, _material);
+    return Hit{t, hitPoint, normal, _material};
 }
 
 bool Sphere::isHitBy(const Ray& ray) const {

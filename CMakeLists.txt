@@ -59,7 +59,7 @@ add_library(raytracer_core
     src/ray/ray.cpp
     src/geometry/sphere.h
     src/geometry/sphere.cpp
-    src/geometry/hit_info.h
+    src/geometry/hit.h
     src/render/camera.h
     src/render/camera.cpp
     src/render/trace.h
@@ -127,7 +127,6 @@ if(BUILD_TESTING)
         tests/colour/test_colour.cpp
         tests/ray/test_ray.cpp
         tests/geometry/test_sphere.cpp
-        tests/geometry/test_hit_info.cpp
         tests/render/test_camera.cpp
         tests/render/test_trace.cpp
         tests/image/test_image.cpp
