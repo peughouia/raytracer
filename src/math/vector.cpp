@@ -27,6 +27,10 @@ Vector Vector::operator-(const Vector& other) const {
     return Vector(_x - other._x, _y - other._y, _z - other._z);
 }
 
+Vector Vector::operator/(double scalar) const {
+    return (1.0 / scalar) * (*this);
+}
+
 double Vector::dot(const Vector& other) const {
     return _x * other._x + _y * other._y + _z * other._z;
 }

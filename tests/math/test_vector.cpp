@@ -43,6 +43,13 @@ TEST_CASE("Vector scalar multiplication", "[vector][math]") {
     requireVectorsEqual(result, math::Vector(6, -8, 2));
 }
 
+TEST_CASE("Vector scalar division", "[vector][math]") {
+    math::Vector v(6, -8, 2);
+    math::Vector result = v / 2.0;
+
+    requireVectorsEqual(result, math::Vector(3, -4, 1));
+}
+
 TEST_CASE("Ray equation O + t * D", "[vector][math]") {
     math::Vector O(0, 8, 0);
     math::Vector D(3, -4, 0);

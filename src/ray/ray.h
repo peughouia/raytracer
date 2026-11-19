@@ -9,6 +9,8 @@ public:
     const math::Vector& origin() const;
     const math::Vector& direction() const;
 
+    math::Vector at(double t) const;
+
 private:
     math::Vector _origin;
     math::Vector _direction;

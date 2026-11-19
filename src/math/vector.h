@@ -13,6 +13,7 @@ public:
 
     Vector operator+(const Vector& other) const;
     Vector operator-(const Vector& other) const;
+    Vector operator/(double scalar) const;
 
     double dot(const Vector& other) const;
     double length() const;

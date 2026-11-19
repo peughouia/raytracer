@@ -13,3 +13,7 @@ double Colour::g() const {
 double Colour::b() const {
     return _b;
 }
+
+Colour operator*(double number, const Colour& colour) {
+    return Colour(number * colour.r(), number * colour.g(), number * colour.b());
+}

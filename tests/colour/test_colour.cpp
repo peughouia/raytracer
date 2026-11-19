@@ -12,3 +12,7 @@ TEST_CASE("Colour components", "[colour]") {
     REQUIRE_THAT(c.g(), WithinAbs(0.5, tolerance));
     REQUIRE_THAT(c.b(), WithinAbs(0.0, tolerance));
 }
+
+TEST_CASE("Colour scalar multiplication", "[colour]") {
+    requireColoursEqual(0.5 * Colour(1, 0.5, 0), Colour(0.5, 0.25, 0));
+}

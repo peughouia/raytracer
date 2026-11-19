@@ -59,6 +59,7 @@ add_library(raytracer_core
     src/ray/ray.cpp
     src/geometry/sphere.h
     src/geometry/sphere.cpp
+    src/geometry/hit_info.h
     src/render/camera.h
     src/render/camera.cpp
     src/render/trace.h
@@ -66,8 +67,9 @@ add_library(raytracer_core
     src/image/image.h
     src/image/image.cpp
     src/material/material.h
-    src/material/flat_shader.h
-    src/material/flat_shader.cpp
+    src/material/material.cpp
+    src/material/lambert_shader.h
+    src/material/lambert_shader.cpp
     src/light/light.h
     src/light/light.cpp
     src/output/image_saver.h
@@ -125,11 +127,13 @@ if(BUILD_TESTING)
         tests/colour/test_colour.cpp
         tests/ray/test_ray.cpp
         tests/geometry/test_sphere.cpp
+        tests/geometry/test_hit_info.cpp
         tests/render/test_camera.cpp
         tests/render/test_trace.cpp
         tests/image/test_image.cpp
         tests/output/test_png_saver.cpp
-        tests/material/test_flat_shader.cpp
+        tests/material/test_material.cpp
+        tests/material/test_lambert_shader.cpp
         tests/light/test_light.cpp
     )
 

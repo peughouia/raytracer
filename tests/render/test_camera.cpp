@@ -1,7 +1,7 @@
 #include <catch2/catch_test_macros.hpp>
 #include "render/camera.h"
 #include "geometry/sphere.h"
-#include "material/flat_shader.h"
+#include "material/material.h"
 #include "image/image.h"
 #include "colour/colour.h"
 #include "test_helpers.h"
@@ -54,8 +54,7 @@ TEST_CASE("Camera render image of sphere", "[render][camera]") {
     Camera camera(Vector(0, 0, -1), Vector(0, 0, 0), 5.0);
     Colour red(1, 0, 0);
     Colour black(0, 0, 0);
-    FlatShader shader(red);
-    Sphere sphere(Vector(0, 0, 6), 5.0, shader);
+    Sphere sphere(Vector(0, 0, 6), 5.0, Material(red));
 
     Image image = camera.render(sphere, 5, 3);
 

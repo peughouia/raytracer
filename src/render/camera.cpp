@@ -14,6 +14,17 @@ Ray Camera::rayThroughPixel(int column, int row, int width, int height) const {
     return Ray(_eye, pixelCentre - _eye);
 }
 
+Image Camera::render(const Sphere& sphere, const Light& light, int width, int height) const {
+    Image image(width, height);
+    for (int row = 0; row < height; ++row) {
+        for (int column = 0; column < width; ++column) {
+            Ray ray = rayThroughPixel(column, row, width, height);
+            image.setPixel(column, row, trace(ray, sphere, light));
+        }
+    }
+    return image;
+}
+
 Image Camera::render(const Sphere& sphere, int width, int height) const {
     Image image(width, height);
     for (int row = 0; row < height; ++row) {
