@@ -7,10 +7,6 @@ using math::Vector;
 Sphere::Sphere(const Vector& centre, double radius, const Material& material)
     : _centre(centre), _radius(radius), _material(material) {}
 
-const Colour& Sphere::colour() const {
-    return _material.colour();
-}
-
 const Material& Sphere::material() const {
     return _material;
 }
@@ -49,8 +45,4 @@ std::optional<Hit> Sphere::hit(const Ray& ray) const {
     Vector normal = (hitPoint - _centre) / _radius;
 
     return Hit{t, hitPoint, normal, _material};
-}
-
-bool Sphere::isHitBy(const Ray& ray) const {
-    return hit(ray).has_value();
 }

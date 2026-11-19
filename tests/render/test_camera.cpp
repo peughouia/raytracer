@@ -53,24 +53,25 @@ TEST_CASE("Camera ray through pixel", "[render][camera]") {
 TEST_CASE("Camera render image of sphere", "[render][camera]") {
     Camera camera(Vector(0, 0, -1), Vector(0, 0, 0), 5.0);
     Colour red(1, 0, 0);
+    Colour shadedRed(0.8, 0, 0);
     Colour black(0, 0, 0);
     Sphere sphere(Vector(0, 0, 6), 5.0, Material(red));
+    Vector toLight(0, 0, -1);
 
-    Image image = camera.render(sphere, 5, 3);
+    Image image = camera.render(sphere, toLight, 5, 3);
 
     REQUIRE(image.width() == 5);
     REQUIRE(image.height() == 3);
 
     for (int row = 0; row < image.height(); ++row) {
         for (int col = 0; col < image.width(); ++col) {
-            bool isRed = (col == 2 && row == 0) ||
-                         (col == 1 && row == 1) ||
-                         (col == 2 && row == 1) ||
-                         (col == 3 && row == 1) ||
-                         (col == 2 && row == 2);
-
-            if (isRed) {
+            if (col == 2 && row == 1) {
                 requireColoursEqual(image.pixel(col, row), red);
+            } else if ((col == 2 && row == 0) ||
+                       (col == 1 && row == 1) ||
+                       (col == 3 && row == 1) ||
+                       (col == 2 && row == 2)) {
+                requireColoursEqual(image.pixel(col, row), shadedRed);
             } else {
                 requireColoursEqual(image.pixel(col, row), black);
             }

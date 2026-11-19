@@ -10,11 +10,9 @@ class Sphere {
 public:
     Sphere(const math::Vector& centre, double radius, const Material& material);
 
-    const Colour& colour() const;
     const Material& material() const;
 
     std::optional<Hit> hit(const Ray& ray) const;
-    bool isHitBy(const Ray& ray) const;
 
 private:
     math::Vector _centre;
