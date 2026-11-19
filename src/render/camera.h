@@ -1,7 +1,7 @@
 #pragma once
 
 #include "math/vector.h"
-#include "geometry/ray.h"
+#include "ray/ray.h"
 
 using math::Vector;
 

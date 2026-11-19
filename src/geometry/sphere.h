@@ -2,7 +2,7 @@
 
 #include "math/vector.h"
 #include "colour/colour.h"
-#include "geometry/ray.h"
+#include "ray/ray.h"
 
 using math::Vector;
 

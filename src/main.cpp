@@ -1,6 +1,6 @@
 #include "math/vector.h"
 #include "colour/colour.h"
-#include "geometry/ray.h"
+#include "ray/ray.h"
 #include "geometry/sphere.h"
 #include "render/camera.h"
 #include <iostream>
