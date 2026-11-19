@@ -69,5 +69,6 @@ CMakeUserPresets.json
 *.png
 *.jpg
 *.bmp
+image.png
 
 reminder.md

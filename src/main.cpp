@@ -1,10 +1,11 @@
 #include "math/vector.h"
 #include "colour/colour.h"
-#include "ray/ray.h"
 #include "geometry/sphere.h"
 #include "render/camera.h"
-#include "render/trace.h"
+#include "image/image.h"
+#include "output/png_saver.h"
 #include <iostream>
+#include <string>
 
 using math::Vector;
 
@@ -12,10 +13,13 @@ int main() {
     Camera camera(Vector(0, 0, -1), Vector(0, 0, 0), 2.0);
     Sphere sphere(Vector(0, 0, 9), 5.0, Colour(1, 0, 0));
 
-    Ray ray = camera.rayThroughCentre();
-    Colour pixelColour = trace(ray, sphere);
+    Image image = camera.render(sphere, 400, 300);
 
-    std::cout << "(" << pixelColour.r() << ", " << pixelColour.g() << ", " << pixelColour.b() << ")\n";
+    const std::string path = "image.png";
+    PngSaver saver;
+    saver.save(image, path);
+
+    std::cout << path << "\n";
 
     return 0;
 }
