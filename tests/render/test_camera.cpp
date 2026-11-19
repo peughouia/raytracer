@@ -1,5 +1,7 @@
 #include <catch2/catch_test_macros.hpp>
+#include <memory>
 #include "render/camera.h"
+#include "scene/scene.h"
 #include "geometry/sphere.h"
 #include "material/material.h"
 #include "image/image.h"
@@ -55,10 +57,10 @@ TEST_CASE("Camera render image of sphere", "[render][camera]") {
     Colour red(1, 0, 0);
     Colour shadedRed(0.8, 0, 0);
     Colour black(0, 0, 0);
-    Sphere sphere(Vector(0, 0, 6), 5.0, Material(red));
-    Vector toLight(0, 0, -1);
+    Scene scene(Vector(0, 0, -1));
+    scene.add(std::make_unique<Sphere>(Vector(0, 0, 6), 5.0, Material(red)));
 
-    Image image = camera.render(sphere, toLight, 5, 3);
+    Image image = camera.render(scene, 5, 3);
 
     REQUIRE(image.width() == 5);
     REQUIRE(image.height() == 3);
