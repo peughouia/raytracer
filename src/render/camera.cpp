@@ -1,5 +1,7 @@
 #include "render/camera.h"
 
+using math::Vector;
+
 Camera::Camera(const Vector& eye, const Vector& screenCentre)
     : _eye(eye), _screenCentre(screenCentre) {}
 

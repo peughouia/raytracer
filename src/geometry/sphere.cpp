@@ -1,6 +1,8 @@
 #include "geometry/sphere.h"
 #include <cmath>
 
+using math::Vector;
+
 Sphere::Sphere(const Vector& centre, double radius, const Colour& colour)
     : _centre(centre), _radius(radius), _colour(colour) {}
 

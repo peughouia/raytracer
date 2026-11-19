@@ -2,16 +2,14 @@
 
 #include "math/vector.h"
 
-using math::Vector;
-
 class Ray {
 public:
-    Ray(const Vector& origin, const Vector& direction);
+    Ray(const math::Vector& origin, const math::Vector& direction);
 
-    const Vector& origin() const;
-    const Vector& direction() const;
+    const math::Vector& origin() const;
+    const math::Vector& direction() const;
 
 private:
-    Vector _origin;
-    Vector _direction;
+    math::Vector _origin;
+    math::Vector _direction;
 };
