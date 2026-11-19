@@ -1,8 +1,8 @@
 #include "math/vector.h"
-#include "colour.h"
-#include "ray.h"
-#include "sphere.h"
-#include "camera.h"
+#include "colour/colour.h"
+#include "geometry/ray.h"
+#include "geometry/sphere.h"
+#include "render/camera.h"
 #include <iostream>
 
 using math::Vector;

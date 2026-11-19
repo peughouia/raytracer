@@ -32,14 +32,14 @@ add_library(raytracer_core
     src/raytracer/hello.cpp
     src/math/vector.h
     src/math/vector.cpp
-    src/colour.h
-    src/colour.cpp
-    src/ray.h
-    src/ray.cpp
-    src/sphere.h
-    src/sphere.cpp
-    src/camera.h
-    src/camera.cpp
+    src/colour/colour.h
+    src/colour/colour.cpp
+    src/geometry/ray.h
+    src/geometry/ray.cpp
+    src/geometry/sphere.h
+    src/geometry/sphere.cpp
+    src/render/camera.h
+    src/render/camera.cpp
 )
 
 target_link_libraries(raytracer_core PUBLIC
@@ -85,7 +85,15 @@ if(BUILD_TESTING)
 
     add_executable(raytracer_tests
         tests/raytracer/test_hello.cpp
+        tests/test_helpers.cpp
         tests/math/test_vector.cpp
+        tests/colour/test_colour.cpp
+        tests/geometry/test_ray.cpp
+        tests/render/test_camera.cpp
+    )
+
+    target_include_directories(raytracer_tests PRIVATE
+        ${CMAKE_CURRENT_SOURCE_DIR}/tests
     )
 
     target_link_libraries(raytracer_tests PRIVATE

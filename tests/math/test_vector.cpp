@@ -2,16 +2,9 @@
 #include <catch2/catch_approx.hpp>
 #include <catch2/matchers/catch_matchers_floating_point.hpp>
 #include "math/vector.h"
+#include "test_helpers.h"
 
 using Catch::Matchers::WithinAbs;
-
-const double tolerance = 1e-9;
-
-static void requireVectorsEqual(const math::Vector& actual, const math::Vector& expected) {
-    REQUIRE_THAT(actual.x(), WithinAbs(expected.x(), tolerance));
-    REQUIRE_THAT(actual.y(), WithinAbs(expected.y(), tolerance));
-    REQUIRE_THAT(actual.z(), WithinAbs(expected.z(), tolerance));
-}
 
 TEST_CASE("Vector addition", "[vector][math]") {
     math::Vector v1(3, 4, 0);

@@ -1,8 +1,8 @@
 #pragma once
 
 #include "math/vector.h"
-#include "colour.h"
-#include "ray.h"
+#include "colour/colour.h"
+#include "geometry/ray.h"
 
 using math::Vector;
 
