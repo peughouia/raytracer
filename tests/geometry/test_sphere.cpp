@@ -39,6 +39,15 @@ TEST_CASE("Sphere hit", "[geometry][sphere]") {
         REQUIRE_FALSE(hit.has_value());
     }
 
+    SECTION("centre (0, 0, 1), around the eye: t = 7, point (0, 0, 6), normal (0, 0, 1)") {
+        Sphere sphere(Vector(0, 0, 1), 5.0, Material(red));
+        auto hit = sphere.hit(ray);
+        REQUIRE(hit.has_value());
+        REQUIRE_THAT(hit->t, WithinAbs(7.0, tolerance));
+        requireVectorsEqual(hit->point, Vector(0, 0, 6));
+        requireVectorsEqual(hit->normal, Vector(0, 0, 1));
+    }
+
     SECTION("centre (0, 0, -11), behind the eye: nothing") {
         Sphere sphere(Vector(0, 0, -11), 5.0, Material(red));
         auto hit = sphere.hit(ray);

@@ -14,10 +14,9 @@ using math::Vector;
 using Catch::Matchers::WithinAbs;
 
 TEST_CASE("Scene toLight accessor", "[scene]") {
-    Vector toLight(0.6, 0, -0.8);
-    Scene scene(toLight);
+    Scene scene(Vector(0, 3, -4));
 
-    requireVectorsEqual(scene.toLight(), toLight);
+    requireVectorsEqual(scene.toLight(), Vector(0, 0.6, -0.8));
 }
 
 TEST_CASE("Scene nearest hit", "[scene]") {
