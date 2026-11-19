@@ -60,6 +60,7 @@ add_library(raytracer_core
     src/geometry/sphere.h
     src/geometry/sphere.cpp
     src/geometry/hit.h
+    src/geometry/shape.h
     src/render/camera.h
     src/render/camera.cpp
     src/render/trace.h

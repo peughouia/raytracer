@@ -12,7 +12,7 @@ using math::Vector;
 
 int main() {
     Camera camera(Vector(0, 0, -1), Vector(0, 0, 0), 2.0);
-    Sphere sphere(Vector(0, 0, 9), 5.0, Material(Colour(1, 0, 0)));
+    Sphere sphere(Vector(0, 0, 9), 5.0, Material(Colour(0, 0, 1)));
     Vector toLight = Vector(-1, 1, -1).normalised();
 
     Image image = camera.render(sphere, toLight, 400, 300);
