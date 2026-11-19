@@ -23,6 +23,27 @@ else()
 endif()
 
 # ==============================================================================
+# External Dependencies
+# ==============================================================================
+include(FetchContent)
+
+# LodePNG: PNG encoder/decoder without external dependencies
+FetchContent_Declare(
+    lodepng
+    GIT_REPOSITORY https://github.com/lvandeve/lodepng.git
+    GIT_TAG        7b2893e35891c0c85bee5595caafaf3c2044b409
+)
+FetchContent_MakeAvailable(lodepng)
+
+add_library(lodepng STATIC
+    ${lodepng_SOURCE_DIR}/lodepng.cpp
+    ${lodepng_SOURCE_DIR}/lodepng.h
+)
+target_include_directories(lodepng SYSTEM PUBLIC
+    ${lodepng_SOURCE_DIR}
+)
+
+# ==============================================================================
 # Raytracer Core Library
 # ==============================================================================
 # All modular raytracing logic (math, rays, cameras, objects) goes here.
@@ -44,10 +65,15 @@ add_library(raytracer_core
     src/render/trace.cpp
     src/image/image.h
     src/image/image.cpp
+    src/output/image_saver.h
+    src/output/png_saver.h
+    src/output/png_saver.cpp
 )
 
 target_link_libraries(raytracer_core PUBLIC
     project_warnings
+PRIVATE
+    lodepng
 )
 
 target_include_directories(raytracer_core PUBLIC
@@ -97,6 +123,7 @@ if(BUILD_TESTING)
         tests/render/test_camera.cpp
         tests/render/test_trace.cpp
         tests/image/test_image.cpp
+        tests/output/test_png_saver.cpp
     )
 
     target_include_directories(raytracer_tests PRIVATE
@@ -106,6 +133,7 @@ if(BUILD_TESTING)
     target_link_libraries(raytracer_tests PRIVATE
         raytracer_core
         Catch2::Catch2WithMain
+        lodepng
     )
 
     set_target_properties(raytracer_tests PROPERTIES

@@ -19,7 +19,7 @@ We will use LodePNG (from `https://github.com/lvandeve/lodepng`) to save images 
 
 ## Status
 
-Proposed
+Accepted
 
 ## Consequences
 

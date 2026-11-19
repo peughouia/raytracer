@@ -7,6 +7,7 @@ target_sources(raytracer_tests PRIVATE
     ${CMAKE_CURRENT_LIST_DIR}/render/test_camera.cpp
     ${CMAKE_CURRENT_LIST_DIR}/render/test_trace.cpp
     ${CMAKE_CURRENT_LIST_DIR}/image/test_image.cpp
+    ${CMAKE_CURRENT_LIST_DIR}/output/test_png_saver.cpp
 )
 
 target_include_directories(raytracer_tests PRIVATE
