@@ -1,5 +1,8 @@
 #include <catch2/catch_test_macros.hpp>
 #include "render/camera.h"
+#include "geometry/sphere.h"
+#include "image/image.h"
+#include "colour/colour.h"
 #include "test_helpers.h"
 
 using math::Vector;
@@ -43,5 +46,33 @@ TEST_CASE("Camera ray through pixel", "[render][camera]") {
         Ray ray = camera.rayThroughPixel(0, 2, width, height);
         requireVectorsEqual(ray.origin(), Vector(0, 0, -1));
         requireVectorsEqual(ray.direction(), Vector(-2, -1, 1));
+    }
+}
+
+TEST_CASE("Camera render image of sphere", "[render][camera]") {
+    Camera camera(Vector(0, 0, -1), Vector(0, 0, 0), 5.0);
+    Colour red(1, 0, 0);
+    Colour black(0, 0, 0);
+    Sphere sphere(Vector(0, 0, 6), 5.0, red);
+
+    Image image = camera.render(sphere, 5, 3);
+
+    REQUIRE(image.width() == 5);
+    REQUIRE(image.height() == 3);
+
+    for (int row = 0; row < image.height(); ++row) {
+        for (int col = 0; col < image.width(); ++col) {
+            bool isRed = (col == 2 && row == 0) ||
+                         (col == 1 && row == 1) ||
+                         (col == 2 && row == 1) ||
+                         (col == 3 && row == 1) ||
+                         (col == 2 && row == 2);
+
+            if (isRed) {
+                requireColoursEqual(image.pixel(col, row), red);
+            } else {
+                requireColoursEqual(image.pixel(col, row), black);
+            }
+        }
     }
 }
