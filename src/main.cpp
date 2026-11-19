@@ -1,26 +1,24 @@
-#include "raytracer/hello.hpp"
 #include "math/vector.h"
+#include "colour.h"
+#include "ray.h"
+#include "sphere.h"
+#include "camera.h"
 #include <iostream>
 
-int main(int argc, char* argv[]) {
-    std::string name = (argc > 1) ? argv[1] : "World";
+using math::Vector;
 
-    std::cout << "========================================\n";
-    std::cout << raytracer::get_greeting(name) << "\n";
-    std::cout << "========================================\n\n";
+int main() {
+    Camera camera(Vector(0, 0, -1), Vector(0, 0, 0));
+    Sphere sphere(Vector(0, 0, 9), 5.0, Colour(1, 0, 0));
 
-    std::cout << raytracer::get_project_info() << "\n\n";
+    Ray ray = camera.rayThroughCentre();
 
-    // Demonstration of our new Vector class
-    raytracer::Vector v1(1.0, 2.0, 3.0);
-    raytracer::Vector v2(4.0, 5.0, 6.0);
-    raytracer::Vector sum = v1 + v2;
+    Colour pixelColour(0, 0, 0);
+    if (sphere.isHitBy(ray)) {
+        pixelColour = sphere.colour();
+    }
 
-    std::cout << "Demo Vector addition:\n";
-    std::cout << "  v1 = (" << v1.x() << ", " << v1.y() << ", " << v1.z() << ")\n";
-    std::cout << "  v2 = (" << v2.x() << ", " << v2.y() << ", " << v2.z() << ")\n";
-    std::cout << "  v1 + v2 = (" << sum.x() << ", " << sum.y() << ", " << sum.z() << ")\n\n";
+    std::cout << "(" << pixelColour.r() << ", " << pixelColour.g() << ", " << pixelColour.b() << ")\n";
 
-    std::cout << "Project bootstrapped successfully! Ready for raytracing development.\n";
     return 0;
 }

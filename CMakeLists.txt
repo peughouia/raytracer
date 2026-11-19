@@ -32,6 +32,14 @@ add_library(raytracer_core
     src/raytracer/hello.cpp
     src/math/vector.h
     src/math/vector.cpp
+    src/colour.h
+    src/colour.cpp
+    src/ray.h
+    src/ray.cpp
+    src/sphere.h
+    src/sphere.cpp
+    src/camera.h
+    src/camera.cpp
 )
 
 target_link_libraries(raytracer_core PUBLIC
