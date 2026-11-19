@@ -75,6 +75,8 @@ add_library(raytracer_core
     src/material/lambert_shader.cpp
     src/light/light.h
     src/light/light.cpp
+    src/scene/scene.h
+    src/scene/scene.cpp
     src/output/image_saver.h
     src/output/png_saver.h
     src/output/png_saver.cpp
@@ -138,6 +140,7 @@ if(BUILD_TESTING)
         tests/material/test_material.cpp
         tests/material/test_lambert_shader.cpp
         tests/light/test_light.cpp
+        tests/scene/test_scene.cpp
     )
 
     target_include_directories(raytracer_tests PRIVATE

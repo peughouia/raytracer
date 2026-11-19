@@ -12,6 +12,7 @@ target_sources(raytracer_tests PRIVATE
     ${CMAKE_CURRENT_LIST_DIR}/material/test_material.cpp
     ${CMAKE_CURRENT_LIST_DIR}/material/test_lambert_shader.cpp
     ${CMAKE_CURRENT_LIST_DIR}/light/test_light.cpp
+    ${CMAKE_CURRENT_LIST_DIR}/scene/test_scene.cpp
 )
 
 target_include_directories(raytracer_tests PRIVATE
