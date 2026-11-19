@@ -40,6 +40,8 @@ add_library(raytracer_core
     src/geometry/sphere.cpp
     src/render/camera.h
     src/render/camera.cpp
+    src/render/trace.h
+    src/render/trace.cpp
 )
 
 target_link_libraries(raytracer_core PUBLIC
@@ -91,6 +93,7 @@ if(BUILD_TESTING)
         tests/ray/test_ray.cpp
         tests/geometry/test_sphere.cpp
         tests/render/test_camera.cpp
+        tests/render/test_trace.cpp
     )
 
     target_include_directories(raytracer_tests PRIVATE

@@ -3,6 +3,7 @@
 #include "ray/ray.h"
 #include "geometry/sphere.h"
 #include "render/camera.h"
+#include "render/trace.h"
 #include <iostream>
 
 using math::Vector;
@@ -12,11 +13,7 @@ int main() {
     Sphere sphere(Vector(0, 0, 9), 5.0, Colour(1, 0, 0));
 
     Ray ray = camera.rayThroughCentre();
-
-    Colour pixelColour(0, 0, 0);
-    if (sphere.isHitBy(ray)) {
-        pixelColour = sphere.colour();
-    }
+    Colour pixelColour = trace(ray, sphere);
 
     std::cout << "(" << pixelColour.r() << ", " << pixelColour.g() << ", " << pixelColour.b() << ")\n";
 
