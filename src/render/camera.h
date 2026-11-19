@@ -9,7 +9,6 @@ class Camera {
 public:
     Camera(const math::Vector& eye, const math::Vector& screenCentre, double screenWidth);
 
-    Ray rayThroughCentre() const;
     Ray rayThroughPixel(int column, int row, int width, int height) const;
     Image render(const Sphere& sphere, int width, int height) const;
 

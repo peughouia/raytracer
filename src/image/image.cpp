@@ -14,9 +14,13 @@ int Image::height() const {
 }
 
 Colour Image::pixel(int column, int row) const {
-    return _pixels[static_cast<std::size_t>(row * _width + column)];
+    return _pixels[index(column, row)];
 }
 
 void Image::setPixel(int column, int row, const Colour& colour) {
-    _pixels[static_cast<std::size_t>(row * _width + column)] = colour;
+    _pixels[index(column, row)] = colour;
+}
+
+std::size_t Image::index(int column, int row) const {
+    return static_cast<std::size_t>(row * _width + column);
 }
