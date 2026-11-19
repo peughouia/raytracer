@@ -4,6 +4,7 @@
 #include "render/camera.h"
 #include "image/image.h"
 #include "output/png_saver.h"
+#include "material/flat_shader.h"
 #include <iostream>
 #include <string>
 
@@ -11,7 +12,8 @@ using math::Vector;
 
 int main() {
     Camera camera(Vector(0, 0, -1), Vector(0, 0, 0), 2.0);
-    Sphere sphere(Vector(0, 0, 9), 5.0, Colour(1, 0, 0));
+    FlatShader red(Colour(1, 0, 0));
+    Sphere sphere(Vector(0, 0, 9), 5.0, red);
 
     Image image = camera.render(sphere, 400, 300);
 

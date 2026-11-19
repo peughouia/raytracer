@@ -1,5 +1,6 @@
 #include <catch2/catch_test_macros.hpp>
 #include "geometry/sphere.h"
+#include "material/flat_shader.h"
 #include "ray/ray.h"
 #include "colour/colour.h"
 #include "test_helpers.h"
@@ -8,7 +9,7 @@ using math::Vector;
 
 TEST_CASE("Sphere ray intersection", "[geometry][sphere]") {
     Ray ray(Vector(0, 0, -1), Vector(0, 0, 1));
-    Colour red(1, 0, 0);
+    FlatShader red(Colour(1, 0, 0));
 
     SECTION("Ray hits sphere centered at (0, 0, 9)") {
         Sphere sphere(Vector(0, 0, 9), 5.0, red);
@@ -31,9 +32,10 @@ TEST_CASE("Sphere ray intersection", "[geometry][sphere]") {
     }
 }
 
-TEST_CASE("Sphere colour accessor", "[geometry][sphere]") {
+TEST_CASE("Sphere material accessor", "[geometry][sphere]") {
     Colour blue(0, 0, 1);
-    Sphere sphere(Vector(0, 0, 9), 5.0, blue);
+    FlatShader shader(blue);
+    Sphere sphere(Vector(0, 0, 9), 5.0, shader);
 
-    requireColoursEqual(sphere.colour(), blue);
+    requireColoursEqual(sphere.material().shade(), blue);
 }

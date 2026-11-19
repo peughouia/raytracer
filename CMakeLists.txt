@@ -65,6 +65,11 @@ add_library(raytracer_core
     src/render/trace.cpp
     src/image/image.h
     src/image/image.cpp
+    src/material/material.h
+    src/material/flat_shader.h
+    src/material/flat_shader.cpp
+    src/light/light.h
+    src/light/light.cpp
     src/output/image_saver.h
     src/output/png_saver.h
     src/output/png_saver.cpp
@@ -124,6 +129,8 @@ if(BUILD_TESTING)
         tests/render/test_trace.cpp
         tests/image/test_image.cpp
         tests/output/test_png_saver.cpp
+        tests/material/test_flat_shader.cpp
+        tests/light/test_light.cpp
     )
 
     target_include_directories(raytracer_tests PRIVATE

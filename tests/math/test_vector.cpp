@@ -64,6 +64,9 @@ TEST_CASE("Vector length", "[vector][math]") {
 }
 
 TEST_CASE("Vector normalisation", "[vector][math]") {
+    math::Vector v(3, 4, 0);
+    requireVectorsEqual(v.normalised(), math::Vector(3.0 / 5.0, 4.0 / 5.0, 0.0));
+
     math::Vector result = math::Vector(3, -4, 0).normalised();
 
     requireVectorsEqual(result, math::Vector(0.6, -0.8, 0));
